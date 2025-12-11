@@ -5,6 +5,7 @@ services:
     build:
       context: ./backend
     container_name: multi_backend
+    image: multi-service-app_backend
     restart: unless-stopped
     ports:
       - "5000:5000"   # optional mapping for direct access
@@ -15,6 +16,7 @@ services:
     build:
       context: ./frontend
     container_name: multi_frontend
+    image: multi-service-app_frontend
     environment:
       - BACKEND_URL=http://backend:5000/process
     ports:
